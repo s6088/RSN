@@ -1,0 +1,26 @@
+
+<br />
+
+<center>
+  <form action="/submit" id="textform" method="post">
+	{% csrf_token %}
+	<input type="text" name="voter" placeholder="Enter voter id"  />
+	<input type="number" name="candidate" placeholder="candidate"  />
+    <input type="submit" value="vote" />
+  </form>
+</center>
+
+<br />
+<center>
+<a href="{{node_address}}/mine" target="_blank"
+  ><button>Mine</button></a
+>
+</center>
+<center>
+<div style="margin: 20px;">
+  {% for vote in votes %}
+  	{{vote.voter}} voted {{vote.candidate}} voted at <i>{{vote.timestamp}}</i></div>
+  {% endfor %}
+</div>
+</center>
+
